@@ -25,7 +25,22 @@ if (Meteor.isClient) {
 
   Template.userItem.events({
     'click button': function(e, template){
-      Meteor.call('createChat', template.data._id);
+
+      Meteor.call('createChat', template.data._id, template.data.username);
+
+    }
+  });
+
+  Template.chat.events({
+    'click button': function(e, template){
+      e.preventDefault();
+
+      var message = $(e.currentTarget).siblings().val();
+
+      Meteor.call('addMessage', message, "text", template.data._id );
+
+      $(e.currentTarget).siblings().val('');
+
     }
   });
 }
@@ -41,10 +56,27 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  createChat: function(otherId){
+  createChat: function(otherId, name){
     Chats.insert({
       userIds:[{id: Meteor.userId()},{id: otherId}],
+      messages: [],
+      name: name,
       started: new Date()
     })
+  },
+  addMessage: function(message, type, chatId){
+    var query = { _id: chatId };
+    var message = {
+      messageEntry: message, 
+      type:type, 
+      userId: Meteor.userId(),
+      userName: Meteor.user().username,
+      entryDate: moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
+    };
+
+    Chats.update(query, {$push: {messages:message}})
   }
 });
+
+
+

@@ -8,6 +8,27 @@
 
 <template name="chat">
 	<div id="chat">
-		<p>{{this._id}}</p>
+		<p>Chat with {{this.name}}</p>
+	</div>
+	{{>messages}}
+	<form>
+		<input type="text" name="message-entry">
+		<button>Click for message</button>
+	</form>
+</template>
+
+<template name="messages">
+	<div id="message">
+		{{#each messages}}
+			{{> message}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="message">
+	<div id="message">
+		<span>{{this.userName}}</span>
+		<span>{{this.entryDate}}</span>
+		<h2>{{this.messageEntry}}</h2>
 	</div>
 </template>

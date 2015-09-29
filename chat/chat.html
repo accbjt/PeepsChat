@@ -1,0 +1,13 @@
+<template name="chatList">
+	<div id="chats">	
+		{{#each chats}}
+			{{> chat}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="chat">
+	<div id="chat">
+		<p>{{this._id}}</p>
+	</div>
+</template>

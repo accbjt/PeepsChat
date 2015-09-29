@@ -1,0 +1,31 @@
+<head>
+  <title>PeepsChat</title>
+</head>
+
+<body>
+  <h1>PeepsChat!!!</h1>
+
+  {{> signupLogin}}
+  {{#if currentUser}}
+  	{{> userList}}
+  {{/if}}
+</body>
+
+
+<template name="userList">
+	<div id="container">
+		<h1>Peeps</h1>
+		<p>Choose yours Peeps to talk to</p>
+		<ul>
+			{{#each users}}
+				{{> userItem}}
+			{{/each}}
+		</ul>
+		
+		{{> chatList}}
+	</div>
+</template>
+
+<template name="userItem">
+	<li><button>{{username}}</button></li>
+</template>

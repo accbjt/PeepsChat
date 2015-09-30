@@ -1,1 +1,113 @@
 /* CSS declarations go here */
+
+.avatar {
+	margin-top: 25px;
+}
+
+.avatar img {
+	cursor: pointer;
+}
+
+.avatar img:hover {
+	background-color: gray;
+	border-radius: 10px;
+}
+
+.avatar img.selected {
+	background-color: gray;
+	border-radius: 10px;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	font-size: 2em;
+	margin-bottom: 20px;
+	font-weight: 600;
+	text-align: center;
+}
+
+p {
+	text-align: center;
+}
+
+.form-container,
+.image-grid {
+	width: 95%;
+	max-width: 1000px;
+	margin: 10px auto;
+	overflow: hidden;
+	padding: 5px;
+}
+
+.image-grid {
+	width: 55%;
+}
+
+.image-grid-square {
+	width: 31%;
+	float: left;
+	padding: 5px;
+}
+
+.image-grid-square img{
+	width: 100%;
+}
+.su-form-section {
+	width:33%;
+	float:left;
+	margin: 10px 0px;
+}
+
+.li-form-section {
+	width: 50%;
+	float: left;
+	margin: 10px 0px;
+}
+
+.li-form-section input,
+.su-form-section input {
+	width: 95%;
+	padding: 5px 5px;
+	font-size: 1.1em;
+	line-height: 1.3em;
+}
+
+.submit-section {
+	width: 100%;
+}
+
+.li-form-section input.submit-button,
+.su-form-section input.submit-button {
+	float: none;
+	display: block;
+	border: none;
+	outline:none;
+	background-color: #111;
+	color: #f9f9f9;
+	cursor: pointer;
+	max-width:500px;
+	margin:0 auto;
+	border-radius: 5px;
+	line-height: 2.3em;
+}
+
+@media screen and (max-width: 850px) {
+	.image-grid-square {
+		width: 47%;
+	}
+
+	.li-form-section,
+	.su-form-section {
+		display: block;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.image-grid-square {
+		width: 95%;
+	}
+}

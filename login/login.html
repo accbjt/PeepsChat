@@ -1,20 +1,65 @@
 <template name="signup">
+<div class="form-container">
 	<form>
-		<h1>Sign Up</h1>
-		<input type="text" id="su-email" placeholder="Email Address">
-		<input type="text" id="su-username" placeholder="User Name">
-		<input type="password" id="su-password" placeholder="Password">
-		<button>Sign Up</button>
-	</form> 
+		<h2>Sign Up</h2>
+		<div class="su-form-section">
+			<input type="text" id="su-email" placeholder="Email Address">
+		</div>
+		<div class="su-form-section">
+			<input type="text" id="su-username" placeholder="User Name">
+		</div>
+		<div class="su-form-section">
+			<input type="password" id="su-password" placeholder="Password">
+		</div>
+		<input type="hidden" id="su-avatar">
+
+		{{> avatar}}
+		<div class="su-form-section submit-section">
+			<input type="submit" value="Sign Up" class="submit-button">
+		</div>
+	</form>
+</div>
 </template>	
 
+<template name="avatar">
+	<div class="avatar image-grid">
+		<h2>Choose Your Avatar</h2>
+		<div class="image-grid-square">
+			<img src="/images/image-1.png">
+		</div>
+		<div class="image-grid-square">
+			<img src="/images/image-2.png">
+		</div>
+		<div class="image-grid-square">
+			<img src="/images/image-3.png">
+		</div>
+		<div class="image-grid-square">
+			<img src="/images/image-4.png">
+		</div>
+		<div class="image-grid-square">
+			<img src="/images/image-5.jpg">
+		</div>
+		<div class="image-grid-square">
+			<img src="/images/image-6.png">
+		</div>
+	</div>
+</template>
+
 <template name="login">
-	<form>
-		<h1>Log In</h1>
-		<input type="text" id="li-username" placeholder="User Name">
-		<input type="password" id="li-password" placeholder="Password">
-		<button>Log In</button>
-	</form> 
+	<div class="form-container">
+		<form>
+			<h2>Log In</h2>
+			<div class="li-form-section">
+				<input type="text" id="li-username" placeholder="User Name">
+			</div>
+			<div class="li-form-section">
+				<input type="password" id="li-password" placeholder="Password">
+			</div>
+			<div class="li-form-section submit-section">
+				<input type='submit' value="Log In" class="submit-button">
+			</div>
+		</form> 
+	</div>
 </template>	
 
 <template name="logout">
@@ -31,8 +76,8 @@
 		{{#if currentUser}}
 			{{> logout}}
 		{{else}}
-			{{> signup}}
 			{{> login}}
+			{{> signup}}
 		{{/if}}
 	{{/if}}
 </template>	

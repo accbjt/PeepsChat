@@ -21,11 +21,11 @@
 				{{> userItem}}
 			{{/each}}
 		</ul>
-		
+
 		{{> chatList}}
 	</div>
 </template>
 
 <template name="userItem">
-	<li><button>{{username}}</button></li>
+	<li><button><img src={{avatar.avatar}}>{{username}}</button></li>
 </template>

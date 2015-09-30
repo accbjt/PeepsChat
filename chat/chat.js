@@ -3,6 +3,7 @@ Chats = new Meteor.Collection('chats');
 if (Meteor.isClient) {
   Meteor.subscribe('chats');
   Meteor.subscribe('users');
+  Meteor.subscribe('avatars');
 
   Template.userList.helpers({
     users: function () {
@@ -17,6 +18,12 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.userItem.helpers({
+    avatar: function(){
+      return Avatars.findOne({userId: Meteor.userId()});
+    }
+  })
+
   Template.chatList.helpers({
     chats: function () {
       return Chats.find({userIds: {"id": Meteor.userId()}});
@@ -25,7 +32,7 @@ if (Meteor.isClient) {
 
   Template.userItem.events({
     'click button': function(e, template){
-
+      e.preventDefault();
       Meteor.call('createChat', template.data._id, template.data.username);
 
     }
@@ -52,6 +59,10 @@ if (Meteor.isServer) {
 
   Meteor.publish('users', function(){
     return Accounts.users.find();
+  })
+
+  Meteor.publish('avatars', function(){
+    return Avatars.find();
   })
 }
 

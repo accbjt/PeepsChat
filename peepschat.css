@@ -68,11 +68,16 @@ p {
 }
 
 .li-form-section input,
-.su-form-section input {
+.su-form-section input,
+.message-form input {
 	width: 95%;
 	padding: 5px 5px;
 	font-size: 1.1em;
 	line-height: 1.3em;
+}
+
+.message-form input{
+	width:80%;
 }
 
 .submit-section {
@@ -80,7 +85,9 @@ p {
 }
 
 .li-form-section input.submit-button,
-.su-form-section input.submit-button {
+.su-form-section input.submit-button,
+.peep,
+.message-form input.submit-button {
 	float: none;
 	display: block;
 	border: none;
@@ -94,10 +101,163 @@ p {
 	line-height: 2.3em;
 }
 
+.message-form input.submit-button {
+	display: inline-block;
+	max-width: 13%;
+	line-height: 1.5em;
+}
+
+.logout-container {
+	padding: 20px;
+  position: absolute;
+  top: 0px;
+  right: 3%;
+}
+
+.peeps-container {
+  float: left;
+  width: 250px;
+  height: 100vh;
+}
+
+.peep {
+	height: 50px;
+	background-color: #81C5FF;
+	color: black;
+	border-radius: 0px;
+	border: 1px solid gray;
+}
+
+.choose-peep {
+  width: 15%;
+  float: left;
+  padding: 20px;
+}
+
+.choose-peep img {
+	width: 100%;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.choose-peep img.active {
+	background-color: blue;
+	border-radius: 5px;
+}
+
+.choose-peeps-container {
+	height: 275px;
+}
+
+.choose-peeps-container p {
+	font-size: 1.3em;
+	margin: 0px;
+}
+
+.logout-user-container {
+	width: 50px;
+}
+
+.logout-user-container div,
+.logout-user-container img {
+	width: 100%;
+	text-align: center;
+}
+
+.choose-peep img:hover {
+	background-color: gray;
+	border-radius: 10px;
+}
+
+.chat {
+	display: none;
+  position: absolute;
+  width: 98%;
+  border: 1px solid #C7C7C7;
+  margin: 15px 0px;
+}
+
+.message-form {
+	width: 99%;
+  bottom: 15px;
+  padding: 5px;
+}
+
+#messages {
+	height: 40vh;
+	overflow-y: scroll;
+	padding-bottom: 150px;
+}
+
+input.message-entry {
+	width: 85%;
+}
+
+.chat:last-child {
+  display: block;
+}
+
+.user {
+	width: 100px;
+}
+
+.user img {
+	width: 100%;
+}
+
+#message {
+	position: relative;
+	padding: 20px;
+	background-color: #F2EFEF;
+  border: 2px solid #DFDADA;
+}
+
+.message-text {
+	background-color: #FFFFFF;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+
+.message-text p{
+	font-size: 1.5em;
+  padding: 0px 20px;
+  text-align: center;
+}
+
+#message .message-text-container .date{
+	position: absolute;
+  display: block;
+  bottom: 20px;
+}
+
+#message .message-text-container {
+	vertical-align: top;
+}
+
+#message .user div {
+	display: block;
+	text-align: center;
+}
+
+#message div {
+	display: inline-block;
+}
+
 @media screen and (max-width: 850px) {
 	.image-grid-square {
 		width: 47%;
 	}
+
+	input.message-entry {
+    width: 98%;
+	}	
+
+	.message-form input.submit-button {
+    display: block;
+    min-width: 500px;
+    line-height: 2.3em;
+    margin-top: 10px;
+	}	
 
 	.li-form-section,
 	.su-form-section {

@@ -7,18 +7,19 @@
 </template>
 
 <template name="chat">
-	<div id="chat">
-		<p>Chat with {{this.name}}</p>
+	<div class="chat" data-id={{this._id}}>
+		{{>messages}}
+		<div class="message-form">
+			<form>
+				<input type="text" class="message-entry" name="message-entry">
+				<input type="submit" class="submit-button" value='Send'>
+			</form>
+		</div>
 	</div>
-	{{>messages}}
-	<form>
-		<input type="text" name="message-entry">
-		<button>Click for message</button>
-	</form>
 </template>
 
 <template name="messages">
-	<div id="message">
+	<div id="messages">
 		{{#each messages}}
 			{{> message}}
 		{{/each}}
@@ -27,8 +28,15 @@
 
 <template name="message">
 	<div id="message">
-		<span>{{this.userName}}</span>
-		<span>{{this.entryDate}}</span>
-		<h2>{{this.messageEntry}}</h2>
+		<div class="user">
+			<img src={{this.avatar}}>
+			<div>{{this.userName}}</div>
+		</div>
+		<div class="message-text-container">
+			<div class="message-text">
+				<p>{{this.messageEntry}}</p>
+			</div>
+			<div class="date">{{this.entryDate}}</div>
+		</div>
 	</div>
 </template>

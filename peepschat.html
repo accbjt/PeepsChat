@@ -14,18 +14,20 @@
 
 <template name="userList">
 	<div id="container">
-		<h1>Peeps</h1>
-		<p>Choose yours Peeps to talk to</p>
-		<ul>
+		<div class="choose-peeps-container">
+			<p>Choose yours Peeps to talk to</p>
 			{{#each users}}
 				{{> userItem}}
 			{{/each}}
-		</ul>
+		</div>
 
 		{{> chatList}}
 	</div>
 </template>
 
 <template name="userItem">
-	<li><button><img src={{avatar.avatar}}>{{username}}</button></li>
+	<div class="choose-peep" data-id={{chatId(this._id)}}>
+		<img src={{avatar(_id)}}>
+		<div class="peep-name"><p>{{username}}</p></div>
+	</div>
 </template>

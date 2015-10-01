@@ -3,6 +3,13 @@ Avatars = new Meteor.Collection('avatars');
 if (Meteor.isClient) {
 	Meteor.subscribe('avatars');
 
+	Template.logout.helpers({
+		avatar: function(){
+			var avatar = Avatars.find({userId: Meteor.userId()}).map(function(avatar){return avatar.avatar})[0];
+			return avatar;
+		}
+	})
+
 	Template.signup.events({
 		'click .submit-button': function(e, template){
 			e.preventDefault();

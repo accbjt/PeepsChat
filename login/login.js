@@ -6,7 +6,7 @@ if (Meteor.isClient) {
 	Template.logout.helpers({
 		avatar: function(){
 			var avatar = Avatars.find({userId: Meteor.userId()}).map(function(avatar){return avatar.avatar})[0];
-			return avatar;
+			return avatar
 		}
 	})
 
@@ -14,13 +14,30 @@ if (Meteor.isClient) {
 		'click .submit-button': function(e, template){
 			e.preventDefault();
 
-			Accounts.createUser({
-				email: template.find('#su-email').value,
-				username: template.find('#su-username').value,
-				password: template.find('#su-password').value
-			});
+			function validate(e){
+				var inputs = $(e.currentTarget).parents('form').find('input');
+				var inputsValueArray = [];
 
-			Meteor.call('createAvatar', template.find('#su-avatar').value)
+	 			inputs.each(function(i){
+					if(inputs[i].value !== "Sign Up"){
+						inputsValueArray.push(inputs[i].value);
+					}
+				});
+
+				return inputsValueArray.indexOf("") === -1 ? true : false;
+			}
+
+			if(validate(e)){
+				Accounts.createUser({
+					email: template.find('#su-email').value,
+					username: template.find('#su-username').value,
+					password: template.find('#su-password').value
+				});
+
+				Meteor.call('createAvatar', template.find('#su-avatar').value);
+			}else{
+				alert('Please make sure all inputs are filled and you have chosen an avatar.');
+			}
 		}
 	})
 

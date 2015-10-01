@@ -270,6 +270,10 @@ input.message-entry {
 		display:none;
 	}
 
+	.logout-user-container .usersname {
+		display:none;
+	}
+
 	.choose-peeps-container {
     height: 150px;
 	}

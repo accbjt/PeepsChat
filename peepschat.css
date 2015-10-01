@@ -249,12 +249,13 @@ input.message-entry {
 	}
 
 	input.message-entry {
-    width: 98%;
+    width: 94%;
+    font-size: 2.1em;
 	}	
 
 	.message-form input.submit-button {
     display: block;
-    min-width: 500px;
+    min-width: 350px;
     line-height: 2.3em;
     margin-top: 10px;
 	}	
@@ -263,6 +264,14 @@ input.message-entry {
 	.su-form-section {
 		display: block;
 		width: 100%;
+	}
+
+	.logout-user-container img {
+		display:none;
+	}
+
+	.choose-peeps-container {
+    height: 150px;
 	}
 }
 
